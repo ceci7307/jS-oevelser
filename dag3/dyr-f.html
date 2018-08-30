@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>test</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="dyr"></div>
+
+        <template class="dyre-template">
+        <div>
+            <h2></h2>
+            <ul>
+            <li class="type-data"></li>
+            <li class="levested-data"></li>
+            </ul>
+            <img src="" alt="">
+            </div>
+        </template>
+
+        <script>
+
+            let dyrne= [{"navn":"elefant:","type":"pattedyr","levested":"Indien","billede":"elefant.jpg"},
+            {"navn":"krokodille:","type":"krybdyr","levested":"Nilen","billede":"elefant.jpg"},
+             {"navn":"sild:","type":"fisk","levested":"Nordsøen","billede":"elefant.jpg"}
+            ];
+
+            document.addEventListener("DOMContentLoaded", start);
+
+            function start(){
+            let dest=document.querySelector(".dyr");
+           let temp=document.querySelector(".dyre-template");
+
+            dyrne.forEach(etdyr => {
+               let klon=temp.cloneNode(true).content;
+                klon.querySelector("h2").textContent=etdyr.navn;
+                klon.querySelector("ul .type-data").textContent=etdyr.type;
+                klon.querySelector("ul .levested-data").textContent=etdyr.levested;
+                klon.querySelector("img").src=etdyr.billede;
+                dest.appendChild(klon);
+
+            })
+            }
+
+
+
+         </script>
+    </body>
+</html>
